@@ -99,6 +99,13 @@ struct MapData
 };
 
 // ----------------------------------------------------
+
+struct pointWithParent
+{
+	int x, y;
+	iPoint parent;
+};
+
 class j1Map : public j1Module
 {
 public:
@@ -148,10 +155,11 @@ private:
 	pugi::xml_document	map_file;
 	p2SString			folder;
 	bool				map_loaded;
-
+	pointWithParent		timePoint;
+	pointWithParent		objectivePoint;
 	/// BFS
 	p2Queue<iPoint>		frontier;
-	p2List<iPoint>		visited;
+	p2List<pointWithParent>		visited;
 };
 
 #endif // __j1MAP_H__
