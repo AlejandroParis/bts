@@ -32,7 +32,11 @@ void j1Map::ResetBFS()
 	frontier.Clear();
 	visited.clear();
 	frontier.Push(iPoint(19, 4));
-	visited.add(iPoint(19, 4));
+	timePoint.x = 19;
+	timePoint.y = 4;
+	visited.add(timePoint);
+	objectivePoint.x = 23;
+	objectivePoint.y = 8;
 }
 
 void j1Map::PropagateBFS()
@@ -40,33 +44,47 @@ void j1Map::PropagateBFS()
 	// TODO 1: If frontier queue contains elements
 	// pop the last one and calculate its 4 neighbors
 	p2Queue_item<iPoint>* last;
-	if (frontier.Count() > 0)
+	if (visited.end != objectivePoint)
 	{
-		last = frontier.start;
-		if (visited.find(iPoint(last->data.x + 1, last->data.y)) == -1)
+		if (frontier.Count() > 0)
 		{
-			frontier.Push(iPoint(last->data.x+1, last->data.y));
-			visited.add(iPoint(last->data.x + 1, last->data.y));
-		}
-		if (visited.find(iPoint(last->data.x - 1, last->data.y)) == -1)
-		{
-			frontier.Push(iPoint(last->data.x - 1, last->data.y));
-			visited.add(iPoint(last->data.x - 1, last->data.y));
-		}
-		if (visited.find(iPoint(last->data.x, last->data.y + 1)) == -1)
-		{
-			frontier.Push(iPoint(last->data.x, last->data.y + 1));
-			visited.add(iPoint(last->data.x, last->data.y + 1));
-		}
-		if (visited.find(iPoint(last->data.x, last->data.y - 1)) == -1)
-		{
-			frontier.Push(iPoint(last->data.x, last->data.y - 1));
-			visited.add(iPoint(last->data.x, last->data.y - 1));
-		}
-		
-		frontier.Pop(last->data);
-	}
+			last = frontier.start;
+			timePoint.x = last->data.x + 1;
+			timePoint.y = last->data.y;
+			timePoint.parent = last->data;
+			if (visited.find(timePoint) == -1)
+			{
+				frontier.Push(iPoint(last->data.x + 1, last->data.y));
+				visited.add(timePoint);
+			}
+			timePoint.x = last->data.x - 1;
+			timePoint.y = last->data.y;
+			timePoint.parent = last->data;
+			if (visited.find(timePoint) == -1)
+			{
+				frontier.Push(iPoint(last->data.x - 1, last->data.y));
+				visited.add(timePoint);
+			}
+			timePoint.x = last->data.x;
+			timePoint.y = last->data.y + 1;
+			timePoint.parent = last->data;
+			if (visited.find(timePoint) == -1)
+			{
+				frontier.Push(iPoint(last->data.x, last->data.y + 1));
+				visited.add(timePoint);
+			}
+			timePoint.x = last->data.x;
+			timePoint.y = last->data.y - 1;
+			timePoint.parent = last->data;
+			if (visited.find(timePoint) == -1)
+			{
+				frontier.Push(iPoint(last->data.x, last->data.y - 1));
+				visited.add(timePoint);
+			}
 
+			frontier.Pop(last->data);
+		}
+	}
 	// TODO 2: For each neighbor, if not visited, add it
 	// to the frontier queue and visited list
 

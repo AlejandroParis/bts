@@ -1,4 +1,21 @@
-﻿  j1Map.cpp
-c:\users\alejandropg6\desktop\dev_class7.5_handout\motor2d\j1map.cpp(196): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\alejandropg6\desktop\dev_class7.5_handout\motor2d\j1map.cpp(197): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Motor2D.vcxproj -> C:\Users\alejandropg6\Desktop\Dev_class7.5_handout\Debug\Dev Class7.5 Handout.exe
+﻿  j1App.cpp
+  j1Map.cpp
+c:\users\alejandropg6\documents\github\bts\dev_class7.5_handout\motor2d\j1map.cpp(196): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\alejandropg6\documents\github\bts\dev_class7.5_handout\motor2d\j1map.cpp(197): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\alejandropg6\documents\github\bts\dev_class7.5_handout\motor2d\p2point.h(39): error C2440: '=': cannot convert from 'p2Point<int>' to 'int'
+  c:\users\alejandropg6\documents\github\bts\dev_class7.5_handout\motor2d\p2point.h(39): note: No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+  c:\users\alejandropg6\documents\github\bts\dev_class7.5_handout\motor2d\p2point.h(35): note: while compiling class template member function 'p2Point<int>::p2Point(const TYPE &,const TYPE &,p2Point<TYPE> &)'
+          with
+          [
+              TYPE=int
+          ]
+  c:\users\alejandropg6\documents\github\bts\dev_class7.5_handout\motor2d\j1map.cpp(49): note: see reference to function template instantiation 'p2Point<int>::p2Point(const TYPE &,const TYPE &,p2Point<TYPE> &)' being compiled
+          with
+          [
+              TYPE=int
+          ]
+  c:\users\alejandropg6\documents\github\bts\dev_class7.5_handout\motor2d\j1map.cpp(34): note: see reference to class template instantiation 'p2Point<int>' being compiled
+  j1Scene.cpp
+  j1Render.cpp
+  j1Textures.cpp
+  Generating Code...

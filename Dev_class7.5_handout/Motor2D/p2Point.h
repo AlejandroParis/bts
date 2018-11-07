@@ -28,6 +28,13 @@ public:
 	{
 		this->x = x;
 		this->y = y;
+		
+	}
+
+	p2Point(const TYPE& x, const TYPE& y)
+	{
+		this->x = x;
+		this->y = y;
 	}
 
 	p2Point& create(const TYPE& x, const TYPE& y)
